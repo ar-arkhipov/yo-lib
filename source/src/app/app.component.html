@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Yo Lib - Angular Components</span>
+  <span class="fill-remaining"></span>
+  <button mat-raised-button color="accent" (click)="openDoc()">Open docs</button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened="true">
+    <a *ngFor="let compo of componentsList" routerLink="{{compo}}" routerLinkActive="active" class="compo-link">{{compo}}</a>
+  </mat-sidenav>
+  <div class="my-content">
+    <router-outlet> </router-outlet>
+  </div>
+</mat-sidenav-container>

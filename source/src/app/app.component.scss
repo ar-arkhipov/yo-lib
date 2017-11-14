@@ -1,0 +1,38 @@
+.fill-remaining {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: calc(100% - 65px);
+}
+
+mat-sidenav-container .my-content {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+mat-sidenav {
+  width: 240px;
+  padding-top: 10px;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.compo-link {
+  display: block;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  border-bottom: 1px solid #ccc;
+  text-decoration: none;
+  font-size: 20px;
+  color: #424242;
+
+
+  &.active {
+    background-color: #ede3f7;
+  }
+}
+

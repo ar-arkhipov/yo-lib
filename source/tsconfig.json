@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/main.ts",
+    "src/main.ts",
+    "**/*.spec.ts",
+    "**/*.e2e-spec.ts",
+    "**/*.e2e.ts",
+    "**/*.po.ts",
+    "**/previews/**/*.ts"
+  ]
+}
