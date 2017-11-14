@@ -78,6 +78,7 @@ npm run serve:wd
 
 Now the preview app is running at your [localhost:4444](http://localhost:4444)
 By the way, generated docs will appear in `documentation` folder (gitignored by default).
+![alt text](https://imgur.com/download/rvIz8He)
 
 ### Creating new component
 
