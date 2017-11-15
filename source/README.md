@@ -2,49 +2,10 @@
 
 Example of reusable angular components library.
 
-## Getting Started
+## Explanation
 
-Library should be used to share components, directives, services etc. among different
-Angular 5.x applications. Based on simple angular 5 app.
-
-### Installing
-
-Installing is simple. First of all switch into root directory of your angular 5 project.
-
-```
-cd my-angular-project
-```
-
-And now run:
-
-```
-npm install --save yo-lib
-```
-
-### Using in project
-
-Simply import necessary modules into your app.module. After that you can use a component
-(or even few) which is exported byt that module.
-Feel free to use YoTestModule for testing if library is installed correctly:
-
-```
-//your app.module.ts
- import YoTestModule from { yo-lib }
- ......
-
- imports: [
-    YoTestModule,
-    ...
- ]
-```
-
-After that, place this line into any template of your project:
-
-```
-<yo-test [interval]="1000">Yo library!</yo-test>
-```
-
-Then, if you see green rectangle with blinking text - everything is OK.
+Repo should be used as a template for creating of your own library with reusable
+Angular 5 components, services, pipes, etc.
 
 ## Library development
 
@@ -56,13 +17,18 @@ git clone git@github.com:Tamango92/yo-lib.git
 cd yo-lib/source
 ```
 
-Now you are in the library source directory, which actually is a simple but a bit tricky Angular app.
+**IMPORTANT NOTE**: **There is no sense in installing and using library with name 'yo-lib' in your angular 5 project, because it
+will bring just a bundled package with two test/demo components. You may do that for testing
+purposes if you want (examples provided in the 'using in project' section).
+So I recommend to rename library and reset version in `package.json` just after you have cloned this repository**
+
+Ok, now you are in the library source directory, which actually is a simple but a bit tricky Angular app.
 
 ```
 npm install
 ```
 
-### Get in touch with existing components (aka preview mode)
+### Get in touch with existing components (aka preview/development mode)
 
 Make sure that you are in the `source` folder. Simply serve the preview app.
 
@@ -78,6 +44,7 @@ npm run serve:wd
 
 Now the preview app is running at your [localhost:4444](http://localhost:4444)
 By the way, generated docs will appear in `documentation` folder (gitignored by default).
+
 ![alt text](https://imgur.com/download/rvIz8He)
 
 ### Creating new component
@@ -143,13 +110,69 @@ After that place your 'yo-user' component into 'yo-user-preview' component templ
 (Look at yo-test and yo-loader examples in previews folder)
 That is all. Now you can easily start to develop your component and check it in preview component.
 
+## Deployment
+
+Increment version in package.json (in the 'source' directory) and simply run:
+
+```
+npm run build:lib
+```
+
+And then:
+
+```
+npm publish ../lib
+```
+NOTE: Commands are executed from `./source` directory.
+
+### Using in project
+
+Installing is simple. First of all switch into root directory of your angular 5 project.
+
+
+```
+cd my-angular-project
+```
+
+And now install your library using :
+
+```
+npm install --save yo-lib  // or YOUR YOUR PUBLISHED LIBRARY NAME
+```
+
+Simply import necessary modules into your app.module. After that you can use a component
+(or even few) which is exported byt that module.
+Feel free to use YoTestModule for testing if library is installed correctly (ofc, if you
+have not removed it before publishing your library):
+
+```
+//your app.module.ts
+ import YoTestModule from { yo-lib }
+ ......
+
+ imports: [
+    YoTestModule,
+    ...
+ ]
+```
+
+After that, place this line into any template of your project:
+
+```
+<yo-test [interval]="1000">Yo library!</yo-test>
+```
+
+Then, if you see green rectangle with blinking text - everything is OK.
+
+## Local development.
+
 ### Changing or fixing existing components with immediate (almost) changes applying in particular app.
 
 Step one. In Angular app change library import name to `lib` directory of local `yo-lib` project.
 For example:
 
 ```
-import { YoTestModule } from '../../../yo-lib/lib';       // before it was 'yo-lib'
+import { YoTestModule } from '../../../yo-lib/lib';   // before it was 'yo-lib'
 ```
 
 Step two. Extend 'compilerOptions' field of `tsconfig.json` in root of your angular app. (It is necessary for local development).
@@ -169,28 +192,14 @@ will be put into `../lib` directory, so all running apps which are linked to the
 ```
 npm run build:lib
 ```
-If you prefer to use **watch mode** (aka live-reload), then instead of manual rebuilding run shown below command before
-starting work.
+
+If you prefer to use *watch mode* (aka live-reload), then instead of manual rebuilding run shown below command before
+starting work. This mode is experimental.
 
 ```
 npm run build:lib:watch
 ```
-**NOTE**: Watch mode is experimental.
-
-## Deployment
-
-Increment version in package.json (in the 'source' directory) and simply run:
-
-```
-npm run build:lib
-```
-
-And then:
-
-```
-npm publish ../lib
-```
-Actually, this process should much more strict and needs discussion. TBD.
+**NOTE**: Commands should be run from the `./source` directory!
 
 ## Built With
 
